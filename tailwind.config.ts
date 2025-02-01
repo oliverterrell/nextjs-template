@@ -1,20 +1,14 @@
-import type { Config } from "tailwindcss";
+const safelist = [
+  { pattern: /(?<!\s)-(primary|lightblue|accent|turtle|lightGray|medGray)/ },
+  /(bottom|top|left|right|h|max-h|min-h|w|z|origin-x-|-origin-x-|translate-x|-translate-x|border)-\b[0-9]{1,3}\b/,
+];
 
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+/** @type {import("tailwindcss").Config} */
+module.exports = {
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
-    },
+    extend: {},
   },
   plugins: [],
+  safelist
 };
-export default config;
