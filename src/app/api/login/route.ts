@@ -2,13 +2,13 @@ import bcrypt from 'bcrypt';
 import { serialize } from 'cookie';
 import { SignJWT } from 'jose';
 import { NextRequest } from 'next/server';
-import { prisma } from '@/server/prismaClient';
+import { prisma } from '@/lib/server/clients/prismaClient';
 
 export async function POST(req: NextRequest) {
   try {
     const { email, password } = await req.json();
 
-    const user = await prisma.user.findOne({ email });
+    const user = await prisma.user.findUnique({ where: { email } });
 
     if (user && (await bcrypt.compare(password, user.password))) {
       const issuedAt = Math.floor(Date.now() / 1000);

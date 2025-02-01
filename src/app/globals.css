@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Abel-Regular';
+  src: url("/fonts/Abel-Regular.otf");
+}
+
+@font-face {
+  font-family: 'Abel-Pro';
+  src: url('/fonts/Abel-Pro.otf');
+}
+
+@font-face {
+  font-family: 'Abel-Pro-Bold';
+  src: url('/fonts/Abel-Pro-Bold.otf');
+}
+
+@font-face {
+  font-family: "Jacquard12-Regular";
+  src: url("/fonts/Jacquard12-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Jersey15-Regular';
+  src: url('/fonts/Jersey15-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'JetBrainsMono-VariableFont_wght';
+  src: url('/fonts/JetBrainsMono-VariableFont_wght.ttf');
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
