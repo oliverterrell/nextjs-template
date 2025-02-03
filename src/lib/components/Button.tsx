@@ -1,4 +1,4 @@
-import { Any } from 'shared/types';
+import { Any } from '@/shared/types';
 import { motion } from 'framer-motion';
 import { ReactNode, useMemo } from 'react';
 
@@ -12,7 +12,7 @@ export enum ButtonType {
 const getButtonColor = (type: ButtonType) => {
   switch (type) {
     case ButtonType.PRIMARY:
-      return 'bg-accent border-accent text-white';
+      return 'bg-accent border-accent text-black font-bold';
     case ButtonType.SECONDARY:
       return 'border-accent text-accent';
     case ButtonType.BUTTON:
@@ -33,7 +33,7 @@ const _getRenderedContent = ({ loading, text, type }) => {
           {loading.content}
         </div>
       ) : (
-        <span className={'text-white'}>{loading.content}</span>
+        <span className={'w-fit text-black'}>{loading.content}</span>
       );
   } else {
     content = text;
@@ -75,7 +75,7 @@ export const Button = ({
   let buttonStyle =
     type === ButtonType.LINK
       ? `w-fit text-accent ${className?.includes('text-') ? '' : 'text-xs'}`
-      : `w-full rounded-full justify-center border-2 p-3`;
+      : `w-[150px] rounded-full justify-center border-2 p-2`;
 
   if (!animation) {
     animation = {};
@@ -85,9 +85,18 @@ export const Button = ({
     return {
       ...animation,
       whileTap: { scale: disabled ? 1 : 0.98 },
-      transition: { ease: 'linear', duration: 0.01, stiffness: 1, damping: 0 },
+      transition: {
+        ease: 'linear',
+        duration: 0.01,
+        layout: {
+          type: 'spring',
+          stiffness: 300,
+          damping: 30,
+        },
+      },
+      layout: true,
     };
-  }, [animation]);
+  }, [disabled, animation]);
 
   const handleClick = () => {
     if (typeof onClick === 'function') {

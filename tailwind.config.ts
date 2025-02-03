@@ -8,6 +8,9 @@ module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        accent: '#F1CA1D',
+      },
       fontFamily: {
         abelReg: "'Abel-Regular'",
         abel: "'Abel-Pro'",
