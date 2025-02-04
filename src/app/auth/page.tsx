@@ -84,7 +84,7 @@ export default function Page() {
   return (
     <div
       key={`auth-page-ui`}
-      className={`relative top-40 flex w-full flex-col items-center justify-center p-3 md:my-auto md:max-h-[62dvh]`}
+      className={`relative -top-20 flex w-full flex-col items-center justify-center p-3 md:my-auto md:max-h-[62dvh]`}
     >
       <div className={`flex w-[400px] flex-row justify-end py-3`}>
         <Button
