@@ -32,7 +32,7 @@ export interface UseFormOptions<TForm> {
  *      validations: {
  *          rootKey1: {
  *              custom: [
- *                  {keys: ['subKey1', 'subKey2'], isValid: async () => return true if valid else false}
+ *                  { keys: ['subKey1', 'subKey2'], isValid: async () => return true if valid else false }
  *              ]
  *          }
  *      }
